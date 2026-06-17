@@ -1,0 +1,25 @@
+import Hero from "@/components/sections/Hero";
+import SocialProof from "@/components/sections/SocialProof";
+import Features from "@/components/sections/Features";
+import Services from "@/components/sections/Services";
+import HowWeWork from "@/components/sections/HowWeWork";
+import Pricing from "@/components/sections/Pricing";
+import Testimonials from "@/components/sections/Testimonials";
+import BlogPreview from "@/components/sections/BlogPreview";
+import CtaBanner from "@/components/sections/CtaBanner";
+
+export default function Home() {
+  return (
+    <>
+      <Hero />
+      <SocialProof />
+      <Features />
+      <Services />
+      <HowWeWork />
+      <Pricing />
+      <Testimonials />
+      <BlogPreview />
+      <CtaBanner />
+    </>
+  );
+}

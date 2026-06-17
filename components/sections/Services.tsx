@@ -1,0 +1,94 @@
+"use client";
+
+import { motion } from "framer-motion";
+import SectionLabel from "@/components/ui/SectionLabel";
+
+const services = [
+  {
+    num: "01",
+    title: "SEO",
+    desc: "Pozycjonowanie, które buduje trwały ruch organiczny i widoczność w Google.",
+    bullets: [
+      "Audyt techniczny i on-page",
+      "Strategia content marketingowa",
+      "Link building wysokiej jakości",
+      "Raportowanie i optymalizacja",
+    ],
+  },
+  {
+    num: "02",
+    title: "Google Ads",
+    desc: "Kampanie w wyszukiwarce i sieci reklamowej z precyzyjnym targetowaniem.",
+    bullets: [
+      "Kampanie Search i Shopping",
+      "Remarketing dynamiczny",
+      "Optymalizacja stawek i budżetu",
+      "A/B testy kreacji reklamowych",
+    ],
+  },
+  {
+    num: "03",
+    title: "Meta Ads",
+    desc: "Reklamy na Facebooku i Instagramie, które konwertują i skalują sprzedaż.",
+    bullets: [
+      "Kampanie prospectingowe i retargetingowe",
+      "Kreacje graficzne i wideo",
+      "Lookalike audiences",
+      "Optymalizacja ROAS",
+    ],
+  },
+  {
+    num: "04",
+    title: "Content Marketing",
+    desc: "Treści, które przyciągają, edukują i konwertują Twoich idealnych klientów.",
+    bullets: [
+      "Strategia treści i content plan",
+      "Artykuły blogowe i case studies",
+      "Infografiki i materiały premium",
+      "Dystrybucja i promocja treści",
+    ],
+  },
+];
+
+export default function Services() {
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ background: "var(--bg-surface)" }}>
+      <div className="mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <SectionLabel>Co robimy</SectionLabel>
+          <h2 className="text-h2 text-text-primary mt-4">Nasze usługi</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((s, i) => (
+            <motion.div
+              key={i}
+              className="glass-card p-8 relative"
+              style={{ borderLeft: "3px solid var(--accent-primary)" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <span className="text-caption text-text-muted absolute top-6 right-6">
+                {s.num}
+              </span>
+              <h3 className="text-h3 text-text-primary mb-3">{s.title}</h3>
+              <p className="text-sm text-text-secondary mb-4 leading-relaxed">
+                {s.desc}
+              </p>
+              <ul className="space-y-2">
+                {s.bullets.map((b, j) => (
+                  <li key={j} className="flex items-center gap-2 text-sm text-text-secondary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-primary shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
