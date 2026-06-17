@@ -63,14 +63,14 @@ export default function Services() {
           {services.map((s, i) => (
             <motion.div
               key={i}
-              className="glass-card p-8 relative"
-              style={{ borderLeft: "3px solid var(--accent-primary)" }}
+              className="lg p-8 relative"
+              style={{ borderLeft: "3px solid var(--signal)" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <span className="text-caption text-text-muted absolute top-6 right-6">
+              <span className="text-caption text-signal absolute top-6 right-6">
                 {s.num}
               </span>
               <h3 className="text-h3 text-text-primary mb-3">{s.title}</h3>
@@ -80,7 +80,7 @@ export default function Services() {
               <ul className="space-y-2">
                 {s.bullets.map((b, j) => (
                   <li key={j} className="flex items-center gap-2 text-sm text-text-secondary">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-primary shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-signal shrink-0" />
                     {b}
                   </li>
                 ))}

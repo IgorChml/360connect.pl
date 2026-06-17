@@ -34,23 +34,17 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "border-b border-border-subtle"
-            : "border-b border-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 lg lg--raised transition-all duration-300 ${
+          scrolled ? "border-b border-border-subtle" : "border-b border-transparent"
         }`}
-        style={{
-          background: "rgba(9, 11, 16, 0.8)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-        }}
+        style={{ borderRadius: 0 }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight"
-              style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
+              className="text-xl font-bold tracking-tight text-signal"
+              style={{ fontFamily: "var(--font-tight)" }}
             >
               360 Connect
             </Link>
@@ -64,14 +58,14 @@ export default function Navbar() {
                     href={link.href}
                     className={`text-sm font-medium transition-colors duration-200 ${
                       active
-                        ? "text-accent-primary"
+                        ? "text-signal"
                         : "text-text-secondary hover:text-text-primary"
                     }`}
                     style={
                       active
                         ? {
                             textDecoration: "none",
-                            borderBottom: "2px solid var(--accent-primary)",
+                            borderBottom: "2px solid var(--signal)",
                             paddingBottom: "2px",
                           }
                         : undefined
@@ -118,10 +112,10 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-2xl font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-accent-primary"
+                    ? "text-signal"
                     : "text-text-secondary hover:text-text-primary"
                 }`}
-                style={{ fontFamily: "var(--font-display)" }}
+                style={{ fontFamily: "var(--font-tight)" }}
               >
                 {link.label}
               </Link>

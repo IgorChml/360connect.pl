@@ -27,7 +27,7 @@ export default function Footer() {
             <Link
               href="/"
               className="text-xl font-bold tracking-tight block mb-4"
-              style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
+              style={{ fontFamily: "var(--font-tight)", color: "var(--signal)" }}
             >
               360 Connect
             </Link>
@@ -35,15 +35,15 @@ export default function Footer() {
               Performance marketing, który widać w przychodzie.
             </p>
             <div className="flex gap-4">
-              <a href="#" aria-label="LinkedIn" className="text-text-muted hover:text-accent-primary transition-colors">
+              <a href="#" aria-label="LinkedIn" className="text-text-muted hover:text-signal transition-colors">
                 <ExternalLink size={18} />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="#" aria-label="Facebook" className="text-text-muted hover:text-accent-primary transition-colors">
+              <a href="#" aria-label="Facebook" className="text-text-muted hover:text-signal transition-colors">
                 <ExternalLink size={18} />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" aria-label="Instagram" className="text-text-muted hover:text-accent-primary transition-colors">
+              <a href="#" aria-label="Instagram" className="text-text-muted hover:text-signal transition-colors">
                 <ExternalLink size={18} />
                 <span className="sr-only">Instagram</span>
               </a>
@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-text-secondary hover:text-accent-primary transition-colors">
+                  <Link href={link.href} className="text-sm text-text-secondary hover:text-signal transition-colors">
                     {link.label}
                   </Link>
                 </li>

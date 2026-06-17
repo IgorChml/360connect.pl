@@ -11,7 +11,7 @@ export default function Error({
   return (
     <section className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="text-center">
-        <p className="text-6xl font-bold text-error mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <p className="text-6xl font-bold text-error mb-4" style={{ fontFamily: "var(--font-tight)" }}>
           Ups!
         </p>
         <h1 className="text-h3 text-text-primary mb-2">Coś poszło nie tak</h1>

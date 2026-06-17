@@ -11,11 +11,11 @@ export default function CtaBanner() {
       <div
         className="absolute inset-0 opacity-20"
         style={{
-          background: "radial-gradient(ellipse at center, var(--accent-glow), transparent 70%)",
+          background: "radial-gradient(ellipse at center, var(--signal-glow), transparent 70%)",
         }}
       />
       <motion.div
-        className="relative z-10 mx-auto max-w-3xl text-center"
+        className="relative z-10 mx-auto max-w-3xl text-center lg lg--signal lg--shimmer p-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

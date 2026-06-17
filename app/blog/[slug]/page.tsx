@@ -38,7 +38,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <article className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8">
-            <span className="text-caption text-accent-primary">{post.category}</span>
+            <span className="text-caption text-signal">{post.category}</span>
             <h1 className="text-h2 text-text-primary mt-2 mb-4">{post.title}</h1>
             <div className="flex items-center gap-4 text-sm text-text-muted">
               <span>{post.author}</span>
@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="flex items-center gap-4">
               <div
                 className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold text-white"
-                style={{ background: "linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))" }}
+                style={{ background: "linear-gradient(135deg, var(--signal), var(--accent-tech))" }}
               >
                 {post.author
                   .split(" ")

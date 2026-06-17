@@ -28,19 +28,18 @@ export default function Features() {
           {features.map((f, i) => (
             <motion.div
               key={i}
-              className="glass-card p-6 group hover:glass-card--accent transition-all duration-300"
+              className="lg p-6 group transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
               style={{ cursor: "default" }}
               whileHover={{
-                borderColor: "var(--border-accent)",
-                boxShadow: "0 0 40px var(--accent-glow)",
+                boxShadow: "0 8px 40px rgba(255, 79, 31, 0.18), 0 1px 0 rgba(255,255,255,0.06) inset",
               }}
             >
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-accent-primary/10">
-                <f.icon size={20} className="text-accent-primary" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-signal-subtle">
+                <f.icon size={20} className="text-signal" />
               </div>
               <h3 className="text-h3 text-text-primary mb-2">{f.title}</h3>
               <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>

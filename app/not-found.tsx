@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="text-center">
-        <p className="text-8xl font-bold text-accent-primary mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <p className="text-8xl font-bold text-signal mb-4" style={{ fontFamily: "var(--font-tight)" }}>
           404
         </p>
         <h1 className="text-h3 text-text-primary mb-2">Strona nie znaleziona</h1>

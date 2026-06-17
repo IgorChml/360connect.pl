@@ -85,14 +85,14 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             </div>
 
             <div className="lg:col-span-1">
-              <GlassCard accent className="p-6 sticky top-24">
-                <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              <GlassCard variant="signal" className="p-6 sticky top-24">
+                <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-tight)" }}>
                   Kluczowe metryki
                 </h3>
                 <div className="space-y-4">
                   {Object.entries(study.metrics).map(([key, value]) => (
                     <div key={key}>
-                      <p className="text-2xl font-bold text-accent-primary" style={{ fontFamily: "var(--font-display)" }}>
+                      <p className="text-2xl font-bold text-signal" style={{ fontFamily: "var(--font-tight)" }}>
                         {value}
                       </p>
                       <p className="text-xs text-text-muted">{key}</p>

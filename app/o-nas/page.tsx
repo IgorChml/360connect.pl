@@ -63,7 +63,7 @@ export default function ONasPage() {
             {team.map((member, i) => (
               <motion.div
                 key={i}
-                className="glass-card p-6 text-center"
+                className="lg p-6 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -71,7 +71,7 @@ export default function ONasPage() {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold text-white mx-auto mb-4"
-                  style={{ background: "linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))" }}
+                  style={{ background: "linear-gradient(135deg, var(--signal), var(--accent-tech))" }}
                 >
                   {member.initials}
                 </div>
@@ -92,7 +92,7 @@ export default function ONasPage() {
           <div className="relative pl-8">
             <div
               className="absolute left-3 top-0 bottom-0 w-0.5"
-              style={{ background: "linear-gradient(180deg, var(--accent-primary), var(--accent-secondary))" }}
+              style={{ background: "linear-gradient(180deg, var(--signal), var(--accent-tech))" }}
             />
             {timeline.map((item, i) => (
               <motion.div
@@ -103,12 +103,12 @@ export default function ONasPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="absolute -left-8 top-0 w-6 h-6 rounded-full flex items-center justify-center bg-bg-base border border-accent-primary">
-                  <span className="w-2 h-2 rounded-full bg-accent-primary" />
+                <div className="absolute -left-8 top-0 w-6 h-6 rounded-full flex items-center justify-center bg-bg-base border border-signal">
+                  <span className="w-2 h-2 rounded-full bg-signal" />
                 </div>
                 <GlassCard className="p-6">
-                  <span className="text-caption text-accent-primary">{item.year}</span>
-                  <h3 className="text-lg font-semibold text-text-primary mt-1 mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  <span className="text-caption text-signal">{item.year}</span>
+                  <h3 className="text-lg font-semibold text-text-primary mt-1 mb-2" style={{ fontFamily: "var(--font-tight)" }}>
                     {item.title}
                   </h3>
                   <p className="text-sm text-text-secondary">{item.desc}</p>
@@ -135,10 +135,10 @@ export default function ONasPage() {
                 transition={{ delay: i * 0.1 }}
               >
                 <GlassCard className="p-6 text-center h-full">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 mx-auto bg-accent-primary/10">
-                    <v.icon size={20} className="text-accent-primary" />
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 mx-auto bg-signal/10">
+                    <v.icon size={20} className="text-signal" />
                   </div>
-                  <h3 className="text-lg font-semibold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>
+                  <h3 className="text-lg font-semibold text-text-primary mb-2" style={{ fontFamily: "var(--font-tight)" }}>
                     {v.title}
                   </h3>
                   <p className="text-sm text-text-secondary">{v.desc}</p>
@@ -157,7 +157,7 @@ export default function ONasPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {["Polska", "DACH", "UK", "Skandynawia"].map((region) => (
                 <div key={region}>
-                  <p className="text-2xl font-bold text-accent-primary" style={{ fontFamily: "var(--font-display)" }}>
+                  <p className="text-2xl font-bold text-signal" style={{ fontFamily: "var(--font-tight)" }}>
                     {region}
                   </p>
                 </div>
