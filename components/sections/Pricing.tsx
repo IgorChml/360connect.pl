@@ -12,7 +12,7 @@ const plans = [
     name: "Starter",
     price: "od 1 500 zł",
     period: "/mies.",
-    highlighted: false,
+    variant: "default" as const,
     features: [
       "1 kanał reklamowy",
       "Audyt wstępny",
@@ -25,7 +25,7 @@ const plans = [
     name: "Growth",
     price: "od 3 500 zł",
     period: "/mies.",
-    highlighted: true,
+    variant: "signal" as const,
     features: [
       "Do 3 kanałów reklamowych",
       "Audyt rozszerzony",
@@ -40,7 +40,7 @@ const plans = [
     name: "Enterprise",
     price: "Wycena indywidualna",
     period: "",
-    highlighted: false,
+    variant: "tech" as const,
     features: [
       "Wszystkie kanały",
       "Dedykowany zespół",
@@ -65,47 +65,55 @@ export default function Pricing() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={i}
-              className={`glass-card ${plan.highlighted ? "glass-card--accent" : ""} p-8 flex flex-col relative`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              {plan.highlighted && (
-                <Badge variant="accent" className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  Najpopularniejszy
-                </Badge>
-              )}
-              <h3 className="text-h3 text-text-primary mb-2">{plan.name}</h3>
-              <div className="mb-6">
-                <span className="text-2xl font-bold text-text-primary" style={{ fontFamily: "var(--font-display)" }}>
-                  {plan.price}
-                </span>
-                {plan.period && (
-                  <span className="text-text-secondary text-sm">{plan.period}</span>
+          {plans.map((plan, i) => {
+            const lgClass =
+              plan.variant === "signal"
+                ? "lg lg--signal lg--shimmer"
+                : plan.variant === "tech"
+                  ? "lg lg--tech"
+                  : "lg";
+            return (
+              <motion.div
+                key={i}
+                className={`${lgClass} p-8 flex flex-col relative`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                {plan.variant === "signal" && (
+                  <Badge variant="signal" className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    Najpopularniejszy
+                  </Badge>
                 )}
-              </div>
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-3 text-sm text-text-secondary">
-                    <Check size={16} className="text-success shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/kontakt">
-                <Button
-                  variant={plan.highlighted ? "primary" : "outline"}
-                  className="w-full"
-                >
-                  Wybierz plan
-                </Button>
-              </Link>
-            </motion.div>
-          ))}
+                <h3 className="text-h3 text-text-primary mb-2">{plan.name}</h3>
+                <div className="mb-6">
+                  <span className="text-2xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tight)" }}>
+                    {plan.price}
+                  </span>
+                  {plan.period && (
+                    <span className="text-text-secondary text-sm">{plan.period}</span>
+                  )}
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map((f, j) => (
+                    <li key={j} className="flex items-center gap-3 text-sm text-text-secondary">
+                      <Check size={16} className="text-success shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/kontakt">
+                  <Button
+                    variant={plan.variant === "signal" ? "primary" : "outline"}
+                    className="w-full"
+                  >
+                    Wybierz plan
+                  </Button>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

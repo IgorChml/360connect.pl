@@ -1,6 +1,8 @@
+import { cn } from "@/lib/utils";
+
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: "default" | "accent";
+  variant?: "default" | "signal" | "tech";
   className?: string;
 }
 
@@ -9,14 +11,15 @@ export default function Badge({
   variant = "default",
   className = "",
 }: BadgeProps) {
-  const styles =
-    variant === "accent"
-      ? "bg-accent-primary/15 text-accent-primary border-accent-primary/30"
-      : "bg-glass-bg text-text-secondary border-border-default";
-
   return (
     <span
-      className={`inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border ${styles} ${className}`}
+      className={cn(
+        "lg lg--pill lg--flat inline-flex items-center text-xs font-medium",
+        variant === "signal" && "lg--signal text-signal",
+        variant === "tech" && "lg--tech text-accent-tech",
+        variant === "default" && "text-text-secondary",
+        className
+      )}
     >
       {children}
     </span>

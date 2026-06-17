@@ -25,7 +25,7 @@ export default function HowWeWork() {
           <div
             className="absolute top-12 left-[12.5%] right-[12.5%] h-0.5"
             style={{
-              background: "linear-gradient(90deg, var(--accent-primary), var(--accent-secondary))",
+              background: "linear-gradient(90deg, var(--signal), var(--accent-tech))",
             }}
           />
           {steps.map((s, i) => (
@@ -37,11 +37,11 @@ export default function HowWeWork() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
             >
-              <div className="w-12 h-12 rounded-full flex items-center justify-center bg-bg-surface border border-accent-primary relative z-10 mb-6">
-                <s.icon size={20} className="text-accent-primary" />
+              <div className="w-12 h-12 rounded-full flex items-center justify-center bg-bg-surface border border-signal relative z-10 mb-6">
+                <s.icon size={20} className="text-signal" />
               </div>
-              <span className="text-caption text-accent-primary mb-2">0{i + 1}</span>
-              <h3 className="text-lg font-semibold text-text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>
+              <span className="text-caption text-signal mb-2">0{i + 1}</span>
+              <h3 className="text-lg font-semibold text-text-primary mb-2" style={{ fontFamily: "var(--font-tight)" }}>
                 {s.title}
               </h3>
               <p className="text-sm text-text-secondary leading-relaxed">{s.desc}</p>
@@ -54,7 +54,7 @@ export default function HowWeWork() {
           <div
             className="absolute left-3 top-0 bottom-0 w-0.5"
             style={{
-              background: "linear-gradient(180deg, var(--accent-primary), var(--accent-secondary))",
+              background: "linear-gradient(180deg, var(--signal), var(--accent-tech))",
             }}
           />
           {steps.map((s, i) => (
@@ -66,10 +66,10 @@ export default function HowWeWork() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
             >
-              <div className="absolute -left-8 top-0 w-6 h-6 rounded-full flex items-center justify-center bg-bg-base border border-accent-primary">
-                <span className="text-[10px] text-accent-primary font-bold">{i + 1}</span>
+              <div className="absolute -left-8 top-0 w-6 h-6 rounded-full flex items-center justify-center bg-bg-base border border-signal">
+                <span className="text-[10px] text-signal font-bold">{i + 1}</span>
               </div>
-              <h3 className="text-lg font-semibold text-text-primary mb-1" style={{ fontFamily: "var(--font-display)" }}>
+              <h3 className="text-lg font-semibold text-text-primary mb-1" style={{ fontFamily: "var(--font-tight)" }}>
                 {s.title}
               </h3>
               <p className="text-sm text-text-secondary leading-relaxed">{s.desc}</p>

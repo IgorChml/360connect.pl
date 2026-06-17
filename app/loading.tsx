@@ -4,7 +4,7 @@ export default function Loading() {
       <div className="flex flex-col items-center gap-4">
         <div
           className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin"
-          style={{ borderColor: "var(--accent-primary)", borderTopColor: "transparent" }}
+          style={{ borderColor: "var(--accent-tech)", borderTopColor: "transparent" }}
         />
         <p className="text-sm text-text-muted">Ładowanie...</p>
       </div>

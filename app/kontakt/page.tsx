@@ -29,7 +29,7 @@ function Input({
     <div>
       <label className="block text-sm text-text-secondary mb-1.5">{label}</label>
       <input
-        className="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-primary"
+        className="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-signal"
         style={{
           background: "var(--bg-elevated)",
           border: "1px solid var(--border-default)",
@@ -88,7 +88,7 @@ export default function KontaktPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <GlassCard className="p-8">
+            <GlassCard variant="raised" className="p-8">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <CheckCircle size={48} className="text-success mb-4" />
@@ -105,7 +105,7 @@ export default function KontaktPage() {
                   <div>
                     <label className="block text-sm text-text-secondary mb-1.5">Budżet miesięczny *</label>
                     <select
-                      className="w-full px-4 py-3 rounded-xl text-sm text-text-primary outline-none transition-colors focus:border-accent-primary"
+                      className="w-full px-4 py-3 rounded-xl text-sm text-text-primary outline-none transition-colors focus:border-signal"
                       style={{ background: "var(--bg-elevated)", border: "1px solid var(--border-default)" }}
                       {...register("budget")}
                     >
@@ -119,7 +119,7 @@ export default function KontaktPage() {
                   <div>
                     <label className="block text-sm text-text-secondary mb-1.5">Opis projektu *</label>
                     <textarea
-                      className="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-accent-primary resize-y min-h-[120px]"
+                      className="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-signal resize-y min-h-[120px]"
                       style={{ background: "var(--bg-elevated)", border: "1px solid var(--border-default)" }}
                       placeholder="Opisz swój projekt i cele..."
                       {...register("message")}
@@ -148,34 +148,34 @@ export default function KontaktPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
           >
             <GlassCard className="p-6">
-              <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-tight)" }}>
                 Dane kontaktowe
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
-                  <Mail size={18} className="text-accent-primary shrink-0" />
+                  <Mail size={18} className="text-signal shrink-0" />
                   kontakt@360connect.pl
                 </li>
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
-                  <Phone size={18} className="text-accent-primary shrink-0" />
+                  <Phone size={18} className="text-signal shrink-0" />
                   +48 123 456 789
                 </li>
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
-                  <Clock size={18} className="text-accent-primary shrink-0" />
+                  <Clock size={18} className="text-signal shrink-0" />
                   Pon–Pt: 9:00–17:00
                 </li>
               </ul>
             </GlassCard>
 
             <GlassCard className="p-6">
-              <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-display)" }}>
+              <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-tight)" }}>
                 Social media
               </h3>
               <div className="flex gap-4">
-                <a href="#" aria-label="LinkedIn" className="text-text-muted hover:text-accent-primary transition-colors flex items-center gap-1 text-sm">
+                <a href="#" aria-label="LinkedIn" className="text-text-muted hover:text-signal transition-colors flex items-center gap-1 text-sm">
                   <ExternalLink size={16} /> LinkedIn
                 </a>
-                <a href="#" aria-label="Facebook" className="text-text-muted hover:text-accent-primary transition-colors flex items-center gap-1 text-sm">
+                <a href="#" aria-label="Facebook" className="text-text-muted hover:text-signal transition-colors flex items-center gap-1 text-sm">
                   <ExternalLink size={16} /> Facebook
                 </a>
               </div>

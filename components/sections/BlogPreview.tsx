@@ -43,7 +43,7 @@ export default function BlogPreview() {
           </div>
           <Link
             href="/blog"
-            className="text-sm text-accent-primary hover:underline hidden sm:block"
+            className="text-sm text-signal hover:underline hidden sm:block"
           >
             Zobacz wszystkie →
           </Link>
@@ -53,7 +53,7 @@ export default function BlogPreview() {
           {mockPosts.map((post, i) => (
             <motion.article
               key={i}
-              className="glass-card overflow-hidden group"
+              className="lg lg--flat overflow-hidden group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -67,7 +67,7 @@ export default function BlogPreview() {
               />
               <div className="p-6">
                 <Badge className="mb-3">{post.category}</Badge>
-                <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-primary transition-colors" style={{ fontFamily: "var(--font-display)" }}>
+                <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-signal transition-colors" style={{ fontFamily: "var(--font-tight)" }}>
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
                 <p className="text-sm text-text-secondary mb-4 leading-relaxed">
@@ -83,7 +83,7 @@ export default function BlogPreview() {
         </div>
 
         <div className="mt-8 text-center sm:hidden">
-          <Link href="/blog" className="text-sm text-accent-primary hover:underline">
+          <Link href="/blog" className="text-sm text-signal hover:underline">
             Zobacz wszystkie →
           </Link>
         </div>

@@ -44,7 +44,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              className="glass-card p-6 min-w-[300px] md:min-w-0"
+              className="lg p-6 min-w-[300px] md:min-w-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -54,7 +54,7 @@ export default function Testimonials() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white"
                   style={{
-                    background: "linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))",
+                    background: "linear-gradient(135deg, var(--signal), var(--accent-tech))",
                   }}
                 >
                   {t.initials}

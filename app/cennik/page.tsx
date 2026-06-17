@@ -83,7 +83,7 @@ const faqItems = [
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <GlassCard className="overflow-hidden">
+    <GlassCard variant="flat" className="overflow-hidden">
       <button
         className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
         onClick={() => setOpen(!open)}
@@ -130,19 +130,19 @@ export default function CennikPage() {
             {plans.map((plan, i) => (
               <motion.div
                 key={i}
-                className={`glass-card ${plan.highlighted ? "glass-card--accent" : ""} p-8 flex flex-col relative`}
+                className={`lg ${plan.highlighted ? "lg--signal" : ""} p-8 flex flex-col relative`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
               >
                 {plan.highlighted && (
-                  <Badge variant="accent" className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <Badge variant="signal" className="absolute -top-3 left-1/2 -translate-x-1/2">
                     Najpopularniejszy
                   </Badge>
                 )}
                 <h3 className="text-h3 text-text-primary mb-2">{plan.name}</h3>
                 <div className="mb-6">
-                  <span className="text-2xl font-bold text-text-primary" style={{ fontFamily: "var(--font-display)" }}>
+                  <span className="text-2xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tight)" }}>
                     {plan.price}
                   </span>
                   {plan.period && <span className="text-text-secondary text-sm">{plan.period}</span>}
@@ -173,7 +173,7 @@ export default function CennikPage() {
                   <tr className="border-b border-border-subtle">
                     <th className="text-left p-4 text-sm text-text-muted">Funkcja</th>
                     <th className="text-center p-4 text-sm text-text-primary font-medium">Starter</th>
-                    <th className="text-center p-4 text-sm text-accent-primary font-medium">Growth</th>
+                    <th className="text-center p-4 text-sm text-signal font-medium">Growth</th>
                     <th className="text-center p-4 text-sm text-text-primary font-medium">Enterprise</th>
                   </tr>
                 </thead>
@@ -203,7 +203,7 @@ export default function CennikPage() {
                     <CellValue value={f.starter} />
                   </div>
                   <div>
-                    <p className="text-xs text-accent-primary mb-1">Growth</p>
+                    <p className="text-xs text-signal mb-1">Growth</p>
                     <CellValue value={f.growth} />
                   </div>
                   <div>
@@ -225,7 +225,7 @@ export default function CennikPage() {
           </div>
 
           <div className="text-center">
-            <GlassCard accent className="p-12 inline-block mx-auto max-w-xl">
+            <GlassCard variant="signal" className="p-12 inline-block mx-auto max-w-xl">
               <h3 className="text-h3 text-text-primary mb-3">
                 Nie wiesz który plan wybrać?
               </h3>

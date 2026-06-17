@@ -23,7 +23,7 @@ export default function BlogCard({
   coverUrl,
 }: BlogCardProps) {
   return (
-    <article className="glass-card overflow-hidden group">
+    <article className="lg lg--flat overflow-hidden group">
       <div
         className="h-40 w-full bg-cover bg-center"
         style={{
@@ -35,8 +35,8 @@ export default function BlogCard({
       <div className="p-6">
         <Badge className="mb-3">{category}</Badge>
         <h3
-          className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-primary transition-colors"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="text-lg font-semibold text-text-primary mb-2 group-hover:text-signal transition-colors"
+          style={{ fontFamily: "var(--font-tight)" }}
         >
           <Link href={`/blog/${slug}`}>{title}</Link>
         </h3>

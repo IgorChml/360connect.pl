@@ -32,7 +32,7 @@ function Counter({ target, prefix, suffix }: { target: number; prefix: string; s
   }, [inView, target]);
 
   return (
-    <span ref={ref} className="text-3xl sm:text-4xl font-bold text-text-primary" style={{ fontFamily: "var(--font-display)" }}>
+    <span ref={ref} className="text-3xl sm:text-4xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tight)" }}>
       {prefix}{count}{suffix}
     </span>
   );
@@ -42,7 +42,7 @@ export default function SocialProof() {
   return (
     <section className="relative py-12 px-4 sm:px-6 lg:px-8 -mt-16 z-10">
       <div className="mx-auto max-w-6xl">
-        <GlassCard accent className="p-8">
+        <GlassCard variant="signal" shimmer className="p-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {metrics.map((m, i) => (
               <motion.div
