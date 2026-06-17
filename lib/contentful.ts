@@ -1,10 +1,12 @@
 import { createClient, EntrySkeletonType, EntryFieldTypes } from "contentful";
 import type { Document } from "@contentful/rich-text-types";
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID ?? "",
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? "",
-});
+function getClient() {
+  const space = process.env.CONTENTFUL_SPACE_ID;
+  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
+  if (!space || !accessToken) return null;
+  return createClient({ space, accessToken });
+}
 
 export interface BlogPost {
   title: string;
@@ -74,6 +76,8 @@ function parseAsset(asset: unknown): { url: string; title: string } | undefined 
 
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
   try {
+    const client = getClient();
+    if (!client) return [];
     const entries = await client.getEntries<BlogPostSkeleton>({
       content_type: "blogPost",
       order: ["-fields.publishedDate"],
@@ -97,6 +101,8 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
+    const client = getClient();
+    if (!client) return null;
     const entries = await client.getEntries<BlogPostSkeleton>({
       content_type: "blogPost",
       "fields.slug": slug,
@@ -123,6 +129,8 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
 
 export async function getAllCaseStudies(): Promise<CaseStudy[]> {
   try {
+    const client = getClient();
+    if (!client) return [];
     const entries = await client.getEntries<CaseStudySkeleton>({
       content_type: "caseStudy",
       order: ["-fields.publishedDate"],
@@ -147,6 +155,8 @@ export async function getAllCaseStudies(): Promise<CaseStudy[]> {
 
 export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null> {
   try {
+    const client = getClient();
+    if (!client) return null;
     const entries = await client.getEntries<CaseStudySkeleton>({
       content_type: "caseStudy",
       "fields.slug": slug,
@@ -174,6 +184,8 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null
 
 export async function getRelatedPosts(category: string, excludeSlug: string): Promise<BlogPost[]> {
   try {
+    const client = getClient();
+    if (!client) return [];
     const entries = await client.getEntries<BlogPostSkeleton>({
       content_type: "blogPost",
       "fields.category": category,

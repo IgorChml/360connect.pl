@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { contactFormSchema } from "@/lib/validations";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -16,6 +14,15 @@ export async function POST(request: Request) {
       );
     }
 
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { success: false, message: "Formularz kontaktowy jest tymczasowo niedostępny." },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const { name, email, phone, company, budget, message } = parsed.data;
     const contactEmail = process.env.CONTACT_EMAIL ?? "kontakt@360connect.pl";
 
