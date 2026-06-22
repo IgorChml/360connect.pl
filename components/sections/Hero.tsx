@@ -8,8 +8,16 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="ambient-glow" />
-      <div className="grid-pattern" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-animation.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/60" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
