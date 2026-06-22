@@ -35,15 +35,15 @@ export default function Footer() {
               Performance marketing, który widać w przychodzie.
             </p>
             <div className="flex gap-4">
-              <a href="#" aria-label="LinkedIn" className="text-text-muted hover:text-signal transition-colors">
+              <a href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center -m-2 p-2 text-text-muted hover:text-signal transition-colors">
                 <ExternalLink size={18} />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="#" aria-label="Facebook" className="text-text-muted hover:text-signal transition-colors">
+              <a href="#" aria-label="Facebook" className="inline-flex items-center justify-center -m-2 p-2 text-text-muted hover:text-signal transition-colors">
                 <ExternalLink size={18} />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" aria-label="Instagram" className="text-text-muted hover:text-signal transition-colors">
+              <a href="#" aria-label="Instagram" className="inline-flex items-center justify-center -m-2 p-2 text-text-muted hover:text-signal transition-colors">
                 <ExternalLink size={18} />
                 <span className="sr-only">Instagram</span>
               </a>

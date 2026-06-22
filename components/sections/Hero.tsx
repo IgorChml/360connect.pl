@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-dvh flex items-center overflow-hidden">
       <div className="hero-gradient" />
       <div className="ambient-glow" />
 
