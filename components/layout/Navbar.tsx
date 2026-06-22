@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 
 const links = [
@@ -41,12 +42,8 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
-            <Link
-              href="/"
-              className="text-xl font-bold tracking-tight text-signal"
-              style={{ fontFamily: "var(--font-tight)" }}
-            >
-              360 Connect
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.webp" alt="360 Connect" width={140} height={40} priority />
             </Link>
 
             <div className="hidden lg:flex items-center gap-8">
