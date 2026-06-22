@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     "SEO, Google Ads, Meta Ads, content marketing. Pojedyncze usługi lub pełny pakiet. Pierwszy raport w 14 dni.",
   metadataBase: new URL("https://360connect.pl"),
   icons: {
-    icon: "/logo.webp",
-    apple: "/logo.webp",
+    icon: "/logo.svg",
+    apple: "/logo.svg",
   },
   openGraph: {
     type: "website",

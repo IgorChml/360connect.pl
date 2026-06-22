@@ -25,8 +25,9 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <Link href="/" className="block mb-4">
-              <Image src="/logo.webp" alt="360 Connect" width={140} height={40} />
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <img src="/logo.svg" alt="360 Connect" width={32} height={32} />
+              <span className="text-lg font-bold tracking-tight" style={{ fontFamily: "var(--font-tight)", color: "var(--signal)" }}>360 Connect</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-6">
               Performance marketing, który widać w przychodzie.

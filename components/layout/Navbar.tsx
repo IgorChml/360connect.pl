@@ -43,7 +43,8 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
             <Link href="/" className="flex items-center">
-              <Image src="/logo.webp" alt="360 Connect" width={140} height={40} priority />
+              <img src="/logo.svg" alt="360 Connect" width={36} height={36} />
+              <span className="ml-2 text-lg font-bold tracking-tight text-text-primary" style={{ fontFamily: "var(--font-tight)" }}>360 Connect</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-8">
