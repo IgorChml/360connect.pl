@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 
 const links = [
   { href: "/", label: "Strona główna" },
@@ -43,10 +44,12 @@ export default function Navbar() {
           <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight text-signal"
+              className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-text-primary"
               style={{ fontFamily: "var(--font-tight)" }}
+              aria-label="360 Connect — strona główna"
             >
-              360 Connect
+              <Logo className="h-7 w-7" />
+              <span>360 Connect</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-8">
