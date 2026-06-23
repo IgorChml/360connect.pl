@@ -1,17 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-dvh flex items-center overflow-hidden">
+    <section className="relative -mt-16 min-h-dvh flex items-center overflow-hidden">
       <div className="hero-gradient" />
       <div className="ambient-glow" />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+      {/* płynne wtopienie dolnej krawędzi w tło kolejnej sekcji */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-48"
+        style={{ background: "linear-gradient(to bottom, transparent 0%, var(--bg-base) 100%)" }}
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-40">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* ── Lewa kolumna: treść ── */}
           <div className="text-center lg:text-left">
@@ -86,14 +91,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-      >
-        <ChevronDown className="text-text-muted" size={28} />
-      </motion.div>
     </section>
   );
 }
