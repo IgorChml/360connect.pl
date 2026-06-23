@@ -20,23 +20,34 @@ const budgetOptions = [
 function Input({
   label,
   error,
+  name,
   ...props
 }: {
   label: string;
   error?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>) {
+  const id = `field-${name}`;
+  const errorId = `${id}-error`;
   return (
     <div>
-      <label className="block text-sm text-text-secondary mb-1.5">{label}</label>
+      <label htmlFor={id} className="block text-sm text-text-secondary mb-1.5">{label}</label>
       <input
-        className="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-signal"
+        id={id}
+        name={name}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
+        className="w-full min-h-[44px] px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-signal"
         style={{
           background: "var(--bg-elevated)",
-          border: "1px solid var(--border-default)",
+          border: `1px solid ${error ? "var(--error)" : "var(--border-default)"}`,
         }}
         {...props}
       />
-      {error && <p className="text-xs mt-1" style={{ color: "var(--error)" }}>{error}</p>}
+      {error && (
+        <p id={errorId} role="alert" className="text-xs mt-1" style={{ color: "var(--error)" }}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -97,43 +108,49 @@ export default function KontaktPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                  <Input label="Imię i nazwisko *" placeholder="Jan Kowalski" {...register("name")} error={errors.name?.message} />
-                  <Input label="Email *" type="email" placeholder="jan@firma.pl" {...register("email")} error={errors.email?.message} />
-                  <Input label="Numer telefonu" placeholder="+48 123 456 789" {...register("phone")} />
-                  <Input label="Firma *" placeholder="Nazwa firmy" {...register("company")} error={errors.company?.message} />
+                  <Input label="Imię i nazwisko *" autoComplete="name" placeholder="Jan Kowalski" {...register("name")} error={errors.name?.message} />
+                  <Input label="Email *" type="email" inputMode="email" autoComplete="email" placeholder="jan@firma.pl" {...register("email")} error={errors.email?.message} />
+                  <Input label="Numer telefonu" type="tel" inputMode="tel" autoComplete="tel" placeholder="+48 123 456 789" {...register("phone")} error={errors.phone?.message} />
+                  <Input label="Firma *" autoComplete="organization" placeholder="Nazwa firmy" {...register("company")} error={errors.company?.message} />
 
                   <div>
-                    <label className="block text-sm text-text-secondary mb-1.5">Budżet miesięczny *</label>
+                    <label htmlFor="field-budget" className="block text-sm text-text-secondary mb-1.5">Budżet miesięczny *</label>
                     <select
-                      className="w-full px-4 py-3 rounded-xl text-sm text-text-primary outline-none transition-colors focus:border-signal"
-                      style={{ background: "var(--bg-elevated)", border: "1px solid var(--border-default)" }}
+                      id="field-budget"
+                      aria-invalid={errors.budget ? true : undefined}
+                      aria-describedby={errors.budget ? "field-budget-error" : undefined}
+                      className="w-full min-h-[44px] px-4 py-3 rounded-xl text-sm text-text-primary outline-none transition-colors focus:border-signal"
+                      style={{ background: "var(--bg-elevated)", border: `1px solid ${errors.budget ? "var(--error)" : "var(--border-default)"}` }}
                       {...register("budget")}
                     >
                       {budgetOptions.map((o) => (
                         <option key={o.value} value={o.value}>{o.label}</option>
                       ))}
                     </select>
-                    {errors.budget && <p className="text-xs mt-1" style={{ color: "var(--error)" }}>{errors.budget.message}</p>}
+                    {errors.budget && <p id="field-budget-error" role="alert" className="text-xs mt-1" style={{ color: "var(--error)" }}>{errors.budget.message}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm text-text-secondary mb-1.5">Opis projektu *</label>
+                    <label htmlFor="field-message" className="block text-sm text-text-secondary mb-1.5">Opis projektu *</label>
                     <textarea
+                      id="field-message"
+                      aria-invalid={errors.message ? true : undefined}
+                      aria-describedby={errors.message ? "field-message-error" : undefined}
                       className="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-signal resize-y min-h-[120px]"
-                      style={{ background: "var(--bg-elevated)", border: "1px solid var(--border-default)" }}
+                      style={{ background: "var(--bg-elevated)", border: `1px solid ${errors.message ? "var(--error)" : "var(--border-default)"}` }}
                       placeholder="Opisz swój projekt i cele..."
                       {...register("message")}
                     />
-                    {errors.message && <p className="text-xs mt-1" style={{ color: "var(--error)" }}>{errors.message.message}</p>}
+                    {errors.message && <p id="field-message-error" role="alert" className="text-xs mt-1" style={{ color: "var(--error)" }}>{errors.message.message}</p>}
                   </div>
 
                   {serverError && (
-                    <p className="text-sm p-3 rounded-lg" style={{ background: "rgba(239,68,68,0.1)", color: "var(--error)" }}>
+                    <p role="alert" className="text-sm p-3 rounded-lg" style={{ background: "rgba(239,68,68,0.1)", color: "var(--error)" }}>
                       {serverError}
                     </p>
                   )}
 
-                  <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting} aria-busy={isSubmitting}>
                     {isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
                   </Button>
                 </form>

@@ -223,8 +223,8 @@ body {
 
 /* ─── TYPOGRAPHY ─────────────────────────────────────────────────── */
 .text-hero {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
   font-family: var(--font-tight);
   font-weight: 700;
@@ -271,6 +271,19 @@ body {
   background-image:
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.5) 0px, transparent 1px, transparent 60px),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0px, transparent 1px, transparent 60px);
+}
+
+/* ─── HERO GRADIENT ──────────────────────────────────────────────── */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 82% 22%, rgba(255, 79, 31, 0.20) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 12% 85%, rgba(14, 165, 255, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 120%, rgba(255, 79, 31, 0.08) 0%, transparent 70%),
+    linear-gradient(170deg, var(--bg-base) 0%, var(--bg-surface) 55%, var(--bg-base) 100%);
 }
 
 /* ─── REDUCED MOTION ─────────────────────────────────────────────── */

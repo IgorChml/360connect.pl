@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 
 const links = [
   { href: "/", label: "Strona główna" },
@@ -28,10 +28,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   return (
     <>
       <nav
@@ -42,9 +38,14 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
-            <Link href="/" className="flex items-center">
-              <img src="/logo.svg" alt="360 Connect" width={36} height={36} />
-              <span className="ml-2 text-lg font-bold tracking-tight text-text-primary" style={{ fontFamily: "var(--font-tight)" }}>360 Connect</span>
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-text-primary"
+              style={{ fontFamily: "var(--font-tight)" }}
+              aria-label="360 Connect — strona główna"
+            >
+              <Logo className="h-7 w-7" />
+              <span>360 Connect</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -84,9 +85,10 @@ export default function Navbar() {
             </div>
 
             <button
-              className="lg:hidden text-text-primary p-2"
+              className="lg:hidden inline-flex items-center justify-center min-h-[44px] min-w-[44px] -mr-2 text-text-primary touch-manipulation"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -103,6 +105,7 @@ export default function Navbar() {
             transition={{ type: "tween", duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col items-center justify-center gap-8"
             style={{ background: "var(--bg-base)" }}
+            onClick={() => setMobileOpen(false)}
           >
             {links.map((link) => (
               <Link

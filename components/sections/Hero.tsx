@@ -7,19 +7,14 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 z-0" style={{
-        background: `
-          radial-gradient(ellipse 80% 70% at 70% 50%, rgba(255, 79, 31, 0.14) 0%, transparent 60%),
-          radial-gradient(ellipse 50% 60% at 20% 80%, rgba(14, 165, 255, 0.08) 0%, transparent 50%),
-          radial-gradient(ellipse 40% 40% at 90% 20%, rgba(255, 79, 31, 0.06) 0%, transparent 50%),
-          linear-gradient(180deg, var(--bg-base) 0%, var(--bg-surface) 100%)
-        `,
-      }} />
+    <section className="relative min-h-dvh flex items-center overflow-hidden">
+      <div className="hero-gradient" />
+      <div className="ambient-glow" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* ── Lewa kolumna: treść ── */}
+          <div className="text-center lg:text-left">
             <motion.h1
               className="text-hero text-text-primary mb-6"
               initial={{ opacity: 0, y: 30 }}
@@ -30,17 +25,17 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-lg sm:text-xl text-text-secondary max-w-xl mb-10 leading-relaxed"
+              className="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              SEO, Google Ads, Meta Ads, content. Pojedyncze usługi lub pełny pakiet.
-              Pierwszy raport w 14 dni — bez umowy na rok.
+              SEO, Google Ads, Meta Ads, content. Pojedyncze usługi lub pełny
+              pakiet. Pierwszy raport w 14 dni — bez umowy na rok.
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -58,31 +53,42 @@ export default function Hero() {
             </motion.div>
           </div>
 
+          {/* ── Prawa kolumna: animacja logo ── */}
           <motion.div
-            className="relative flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
+            className="relative mx-auto w-full max-w-md lg:max-w-none"
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
           >
-            <div className="relative w-full aspect-square max-w-lg mx-auto rounded-2xl overflow-hidden" style={{
-              boxShadow: "0 20px 60px rgba(255, 79, 31, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.06)",
-            }}>
+            <div
+              className="relative overflow-hidden rounded-[var(--lg-radius-lg)] border"
+              style={{
+                borderColor: "var(--lg-border-signal)",
+                boxShadow: "var(--lg-shadow-signal)",
+              }}
+            >
               <video
+                className="block h-full w-full object-cover"
                 autoPlay
-                loop
                 muted
+                loop
                 playsInline
-                className="w-full h-full object-cover"
+                aria-label="Animowane logo 360 Connect"
               >
                 <source src="/hero-animation.mp4" type="video/mp4" />
               </video>
             </div>
+            {/* poświata pod panelem */}
+            <div
+              className="absolute -inset-4 -z-10 blur-2xl"
+              style={{ background: "var(--signal-glow)" }}
+            />
           </motion.div>
         </div>
       </div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       >
