@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <img src="/logo.svg" alt="360 Connect" width={32} height={32} />
+              <Image src="/logo.svg" alt="360 Connect" width={32} height={32} />
               <span className="text-lg font-bold tracking-tight" style={{ fontFamily: "var(--font-tight)", color: "var(--signal)" }}>360 Connect</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-6">
