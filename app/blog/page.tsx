@@ -1,10 +1,19 @@
 import { getAllBlogPosts } from "@/lib/contentful";
 import BlogCard from "@/components/contentful/BlogCard";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Artykuły o performance marketingu, SEO, Google Ads i content marketingu.",
+  description:
+    "Artykuły o performance marketingu, SEO, Google Ads, Meta Ads i content marketingu. Wiedza, trendy i praktyczne porady od ekspertów 360 Connect.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog | 360 Connect",
+    description:
+      "Wiedza, trendy i praktyczne porady z performance marketingu.",
+    url: "/blog",
+  },
 };
 
 export const revalidate = 3600;
@@ -14,6 +23,7 @@ export default async function BlogPage() {
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ name: "Blog", path: "/blog" }]} />
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-h2 text-text-primary">Blog</h1>
