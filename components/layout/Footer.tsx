@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/services";
@@ -31,12 +32,9 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <Link
-              href="/"
-              className="text-xl font-bold tracking-tight block mb-4"
-              style={{ fontFamily: "var(--font-tight)", color: "var(--signal)" }}
-            >
-              360 Connect
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <img src="/logo.svg" alt="360 Connect" width={32} height={32} />
+              <span className="text-lg font-bold tracking-tight" style={{ fontFamily: "var(--font-tight)", color: "var(--signal)" }}>360 Connect</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-6">
               Performance marketing, który widać w przychodzie.
@@ -50,7 +48,7 @@ export default function Footer() {
                     aria-label={label}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-text-muted hover:text-signal transition-colors"
+                    className="inline-flex items-center justify-center -m-2 p-2 text-text-muted hover:text-signal transition-colors"
                   >
                     <ExternalLink size={18} />
                     <span className="sr-only">{label}</span>

@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
+import MotionProvider from "@/components/providers/MotionProvider";
 
 const inter = Inter({
   variable: "--font-body",
@@ -41,6 +42,10 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: true,
     email: true,
+  },
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
   },
   openGraph: {
     type: "website",
@@ -83,9 +88,17 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-body)" }}
       >
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-signal focus:px-4 focus:py-2 focus:text-white focus:font-medium"
+        >
+          Przejdź do treści
+        </a>
+        <MotionProvider>
+          <Navbar />
+          <main id="main" className="flex-1">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

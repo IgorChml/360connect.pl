@@ -29,10 +29,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   return (
     <>
       <nav
@@ -90,9 +86,10 @@ export default function Navbar() {
             </div>
 
             <button
-              className="lg:hidden text-text-primary p-2"
+              className="lg:hidden inline-flex items-center justify-center min-h-[44px] min-w-[44px] -mr-2 text-text-primary touch-manipulation"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -109,6 +106,7 @@ export default function Navbar() {
             transition={{ type: "tween", duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col items-center justify-center gap-8"
             style={{ background: "var(--bg-base)" }}
+            onClick={() => setMobileOpen(false)}
           >
             {links.map((link) => (
               <Link
