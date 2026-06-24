@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { getBlogPostBySlug, getRelatedPosts } from "@/lib/contentful";
 import BlogCard from "@/components/contentful/BlogCard";
 import GlassCard from "@/components/ui/GlassCard";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import JsonLd from "@/components/seo/JsonLd";
+import { siteConfig } from "@/lib/siteConfig";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
@@ -17,10 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `/blog/${post.slug}`,
+      publishedTime: post.publishedDate || undefined,
+      authors: post.author ? [post.author] : undefined,
       ...(post.coverImage && { images: [post.coverImage.url] }),
     },
   };
@@ -33,8 +40,33 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const related = await getRelatedPosts(post.category, post.slug);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    mainEntityOfPage: `${siteConfig.url}/blog/${post.slug}`,
+    inLanguage: "pl-PL",
+    ...(post.coverImage && { image: post.coverImage.url }),
+    ...(post.publishedDate && { datePublished: post.publishedDate }),
+    ...(post.author && { author: { "@type": "Person", name: post.author } }),
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/icon.png` },
+    },
+  };
+
   return (
     <>
+      <JsonLd data={articleSchema} />
+      <Breadcrumbs
+        items={[
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
       <article className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mb-8">

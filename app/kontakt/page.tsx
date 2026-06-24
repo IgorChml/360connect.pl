@@ -8,6 +8,13 @@ import { CheckCircle, Mail, Phone, Clock, ExternalLink } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
+import { siteConfig } from "@/lib/siteConfig";
+
+const socialLinks = [
+  { key: "linkedin", label: "LinkedIn", href: siteConfig.social.linkedin },
+  { key: "facebook", label: "Facebook", href: siteConfig.social.facebook },
+  { key: "instagram", label: "Instagram", href: siteConfig.social.instagram },
+].filter((s) => Boolean(s.href));
 
 const budgetOptions = [
   { value: "", label: "Wybierz budżet" },
@@ -154,11 +161,15 @@ export default function KontaktPage() {
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
                   <Mail size={18} className="text-signal shrink-0" />
-                  kontakt@360connect.pl
+                  <a href={`mailto:${siteConfig.email}`} className="hover:text-signal transition-colors">
+                    {siteConfig.email}
+                  </a>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
                   <Phone size={18} className="text-signal shrink-0" />
-                  +48 123 456 789
+                  <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="hover:text-signal transition-colors">
+                    {siteConfig.phone}
+                  </a>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
                   <Clock size={18} className="text-signal shrink-0" />
@@ -167,19 +178,27 @@ export default function KontaktPage() {
               </ul>
             </GlassCard>
 
-            <GlassCard className="p-6">
-              <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-tight)" }}>
-                Social media
-              </h3>
-              <div className="flex gap-4">
-                <a href="#" aria-label="LinkedIn" className="text-text-muted hover:text-signal transition-colors flex items-center gap-1 text-sm">
-                  <ExternalLink size={16} /> LinkedIn
-                </a>
-                <a href="#" aria-label="Facebook" className="text-text-muted hover:text-signal transition-colors flex items-center gap-1 text-sm">
-                  <ExternalLink size={16} /> Facebook
-                </a>
-              </div>
-            </GlassCard>
+            {socialLinks.length > 0 && (
+              <GlassCard className="p-6">
+                <h3 className="text-lg font-semibold text-text-primary mb-4" style={{ fontFamily: "var(--font-tight)" }}>
+                  Social media
+                </h3>
+                <div className="flex gap-4">
+                  {socialLinks.map(({ key, label, href }) => (
+                    <a
+                      key={key}
+                      href={href}
+                      aria-label={label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-text-muted hover:text-signal transition-colors flex items-center gap-1 text-sm"
+                    >
+                      <ExternalLink size={16} /> {label}
+                    </a>
+                  ))}
+                </div>
+              </GlassCard>
+            )}
           </motion.div>
         </div>
       </div>

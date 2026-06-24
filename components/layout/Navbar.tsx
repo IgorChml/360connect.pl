@@ -11,6 +11,7 @@ import Logo from "@/components/ui/Logo";
 const links = [
   { href: "/", label: "Strona główna" },
   { href: "/o-nas", label: "O nas" },
+  { href: "/uslugi", label: "Usługi" },
   { href: "/cennik", label: "Cennik" },
   { href: "/case-study", label: "Case Study" },
   { href: "/blog", label: "Blog" },

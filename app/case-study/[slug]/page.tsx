@@ -3,6 +3,9 @@ import { getCaseStudyBySlug } from "@/lib/contentful";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import JsonLd from "@/components/seo/JsonLd";
+import { siteConfig } from "@/lib/siteConfig";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
@@ -17,9 +20,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!study) return { title: "Case Study nie znalezione" };
   return {
     title: `${study.title} — Case Study`,
-    description: `Case study: ${study.client} — ${study.industry}`,
+    description: `Case study: ${study.client} — ${study.industry}. Zobacz mierzalne wyniki współpracy z 360 Connect.`,
+    alternates: { canonical: `/case-study/${study.slug}` },
     openGraph: {
       title: study.title,
+      type: "article",
+      url: `/case-study/${study.slug}`,
       ...(study.coverImage.url && { images: [study.coverImage.url] }),
     },
   };
@@ -30,8 +36,33 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   const study = await getCaseStudyBySlug(slug);
   if (!study) notFound();
 
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: study.title,
+    description: `Case study: ${study.client} — ${study.industry}`,
+    url: `${siteConfig.url}/case-study/${study.slug}`,
+    mainEntityOfPage: `${siteConfig.url}/case-study/${study.slug}`,
+    inLanguage: "pl-PL",
+    ...(study.coverImage.url && { image: study.coverImage.url }),
+    ...(study.publishedDate && { datePublished: study.publishedDate }),
+    author: { "@type": "Organization", name: siteConfig.name },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/icon.png` },
+    },
+  };
+
   return (
     <>
+      <JsonLd data={caseStudySchema} />
+      <Breadcrumbs
+        items={[
+          { name: "Case Study", path: "/case-study" },
+          { name: study.title, path: `/case-study/${study.slug}` },
+        ]}
+      />
       <section className="relative">
         <div
           className="h-64 sm:h-80 w-full bg-cover bg-center relative"
