@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MotionProvider from "@/components/providers/MotionProvider";
+import OrganizationSchema from "@/components/seo/OrganizationSchema";
 
 const inter = Inter({
   variable: "--font-body",
@@ -33,10 +34,6 @@ export const metadata: Metadata = {
   description:
     "SEO, Google Ads, Meta Ads, content marketing. Pojedyncze usługi lub pełny pakiet. Pierwszy raport w 14 dni.",
   metadataBase: new URL("https://360connect.pl"),
-  icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
-  },
   openGraph: {
     type: "website",
     locale: "pl_PL",
@@ -64,6 +61,7 @@ export default function RootLayout({
         >
           Przejdź do treści
         </a>
+        <OrganizationSchema />
         <MotionProvider>
           <Navbar />
           <main id="main" className="flex-1">{children}</main>

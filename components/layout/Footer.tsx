@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 
 const navLinks = [
@@ -74,11 +73,21 @@ export default function Footer() {
 
           <div>
             <h4 className="text-caption text-text-primary font-semibold mb-4">Kontakt</h4>
-            <ul className="space-y-3 text-sm text-text-secondary">
-              <li>kontakt@360connect.pl</li>
-              <li>+48 123 456 789</li>
-              <li>Warszawa, Polska</li>
-            </ul>
+            <address className="not-italic space-y-3 text-sm text-text-secondary">
+              <p className="text-text-primary font-medium">360 Connect</p>
+              <p>
+                <a href="mailto:kontakt@360connect.pl" className="hover:text-signal transition-colors">
+                  kontakt@360connect.pl
+                </a>
+              </p>
+              <p>
+                <a href="tel:+48690004275" className="hover:text-signal transition-colors">
+                  +48 690 004 275
+                </a>
+              </p>
+              <p>Poznań, Polska</p>
+              <p className="text-text-muted">NIP: 7831897775</p>
+            </address>
           </div>
         </div>
 

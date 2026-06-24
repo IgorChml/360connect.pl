@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { CheckCircle, Mail, Phone, Clock, ExternalLink } from "lucide-react";
+import { CheckCircle, Mail, Phone, Clock, MapPin, ExternalLink } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
@@ -171,11 +171,23 @@ export default function KontaktPage() {
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
                   <Mail size={18} className="text-signal shrink-0" />
-                  kontakt@360connect.pl
+                  <a href="mailto:kontakt@360connect.pl" className="hover:text-signal transition-colors">
+                    kontakt@360connect.pl
+                  </a>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
                   <Phone size={18} className="text-signal shrink-0" />
-                  +48 123 456 789
+                  <a href="tel:+48690004275" className="hover:text-signal transition-colors">
+                    +48 690 004 275
+                  </a>
+                </li>
+                <li className="flex items-start gap-3 text-sm text-text-secondary">
+                  <MapPin size={18} className="text-signal shrink-0 mt-0.5" />
+                  <span>
+                    Poznań, Polska
+                    <br />
+                    <span className="text-text-muted">NIP: 7831897775</span>
+                  </span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-text-secondary">
                   <Clock size={18} className="text-signal shrink-0" />

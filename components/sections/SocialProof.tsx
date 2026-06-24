@@ -40,7 +40,7 @@ function Counter({ target, prefix, suffix }: { target: number; prefix: string; s
 
 export default function SocialProof() {
   return (
-    <section className="relative py-12 px-4 sm:px-6 lg:px-8 -mt-16 z-10">
+    <section className="relative py-12 px-4 sm:px-6 lg:px-8 z-10">
       <div className="mx-auto max-w-6xl">
         <GlassCard variant="signal" shimmer className="p-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
