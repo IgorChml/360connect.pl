@@ -43,10 +43,6 @@ export const metadata: Metadata = {
     telephone: true,
     email: true,
   },
-  icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
-  },
   openGraph: {
     type: "website",
     locale: "pl_PL",

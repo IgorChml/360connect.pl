@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/services";
@@ -89,22 +88,24 @@ export default function Footer() {
 
           <div>
             <h4 className="text-caption text-text-primary font-semibold mb-4">Kontakt</h4>
-            <ul className="space-y-3 text-sm text-text-secondary">
-              <li>
+            <address className="not-italic space-y-3 text-sm text-text-secondary">
+              <p className="text-text-primary font-medium">{siteConfig.name}</p>
+              <p>
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-signal transition-colors">
                   {siteConfig.email}
                 </a>
-              </li>
-              <li>
+              </p>
+              <p>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
                   className="hover:text-signal transition-colors"
                 >
                   {siteConfig.phone}
                 </a>
-              </li>
-              <li>{siteConfig.address.locality}, Polska</li>
-            </ul>
+              </p>
+              <p>{siteConfig.address.locality}, Polska</p>
+              <p className="text-text-muted">NIP: {siteConfig.taxId}</p>
+            </address>
           </div>
         </div>
 

@@ -7,13 +7,15 @@ export const siteConfig = {
   url: "https://www.360connect.com.pl",
   locale: "pl_PL",
   description:
-    "Agencja performance marketingu z Warszawy. SEO, Google Ads, Meta Ads i content marketing oparte na danych. Pojedyncze usługi lub pełny pakiet — pierwszy raport w 14 dni.",
+    "Agencja performance marketingu z Poznania. SEO, Google Ads, Meta Ads i content marketing oparte na danych. Pojedyncze usługi lub pełny pakiet — pierwszy raport w 14 dni.",
   email: "kontakt@360connect.pl",
-  // TODO: zastąp prawdziwym numerem telefonu firmy.
-  phone: "+48 123 456 789",
+  phone: "+48 690 004 275",
+  vatId: "PL7831897775",
+  taxId: "7831897775",
+  founder: "Igor Chmiel",
   address: {
-    locality: "Warszawa",
-    region: "Mazowieckie",
+    locality: "Poznań",
+    region: "Wielkopolskie",
     country: "PL",
   },
   // Dodaj prawdziwe profile, gdy będą gotowe — puste wpisy nie są renderowane,
