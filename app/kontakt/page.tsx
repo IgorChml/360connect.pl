@@ -4,9 +4,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { CheckCircle, Mail, Phone, Clock, MapPin, ExternalLink } from "lucide-react";
+import { CheckCircle, Mail, Phone, Clock, MapPin } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
+import SocialIcon from "@/components/ui/SocialIcon";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -218,7 +219,7 @@ export default function KontaktPage() {
                       rel="noopener noreferrer"
                       className="text-text-muted hover:text-signal transition-colors flex items-center gap-1 text-sm"
                     >
-                      <ExternalLink size={16} /> {label}
+                      <SocialIcon name={key} size={16} /> {label}
                     </a>
                   ))}
                 </div>
