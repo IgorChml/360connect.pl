@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/services";
+import SocialIcon from "@/components/ui/SocialIcon";
 
 const navLinks = [
   { href: "/", label: "Strona główna" },
@@ -49,7 +49,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center -m-2 p-2 text-text-muted hover:text-signal transition-colors"
                   >
-                    <ExternalLink size={18} />
+                    <SocialIcon name={key} size={18} />
                     <span className="sr-only">{label}</span>
                   </a>
                 ))}

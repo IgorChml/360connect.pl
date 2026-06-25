@@ -22,8 +22,8 @@ export const siteConfig = {
   // żeby uniknąć martwych linków (href="#").
   social: {
     linkedin: "",
-    facebook: "",
-    instagram: "",
+    facebook: "https://www.facebook.com/profile.php?id=61585539484076",
+    instagram: "https://www.instagram.com/360connectagency/",
   } as Record<string, string>,
   foundingYear: "2020",
 } as const;
