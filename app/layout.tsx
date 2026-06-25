@@ -3,8 +3,10 @@ import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import { siteConfig } from "@/lib/siteConfig";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 import MotionProvider from "@/components/providers/MotionProvider";
-import OrganizationSchema from "@/components/seo/OrganizationSchema";
 
 const inter = Inter({
   variable: "--font-body",
@@ -28,16 +30,42 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "360 Connect — Agencja Performance Marketingu",
+    default: "Agencja Performance Marketingu Warszawa — SEO, Ads | 360 Connect",
     template: "%s | 360 Connect",
   },
-  description:
-    "SEO, Google Ads, Meta Ads, content marketing. Pojedyncze usługi lub pełny pakiet. Pierwszy raport w 14 dni.",
-  metadataBase: new URL("https://360connect.pl"),
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  formatDetection: {
+    telephone: true,
+    email: true,
+  },
   openGraph: {
     type: "website",
     locale: "pl_PL",
-    siteName: "360 Connect",
+    siteName: siteConfig.name,
+    url: siteConfig.url,
+    title: "Agencja Performance Marketingu Warszawa — SEO, Ads | 360 Connect",
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agencja Performance Marketingu Warszawa — SEO, Ads | 360 Connect",
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -55,13 +83,13 @@ export default function RootLayout({
         className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-body)" }}
       >
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-signal focus:px-4 focus:py-2 focus:text-white focus:font-medium"
         >
           Przejdź do treści
         </a>
-        <OrganizationSchema />
         <MotionProvider>
           <Navbar />
           <main id="main" className="flex-1">{children}</main>
