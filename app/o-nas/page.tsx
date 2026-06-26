@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Heart, Lightbulb, Handshake } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CtaBanner from "@/components/sections/CtaBanner";
+import Icon from "@/components/ui/Icon";
+import type { BrandIconName } from "@/lib/brandIcons";
 
 const team = [
   { initials: "IK", name: "Igor Chmiel", role: "CEO & Founder" },
@@ -21,11 +22,11 @@ const timeline = [
   { year: "2026", title: "120+ projektów", desc: "Ponad 120 zrealizowanych projektów i status Google Premier Partner." },
 ];
 
-const values = [
-  { icon: Target, title: "Orientacja na wynik", desc: "Każda decyzja oparta jest na danych i mierzalnych KPI." },
-  { icon: Heart, title: "Pasja do marketingu", desc: "Kochamy to, co robimy — i widać to w wynikach naszych klientów." },
-  { icon: Lightbulb, title: "Innowacyjność", desc: "Stale testujemy nowe narzędzia, technologie i strategie." },
-  { icon: Handshake, title: "Partnerstwo", desc: "Traktujemy klientów jak partnerów — ich sukces jest naszym sukcesem." },
+const values: { icon: BrandIconName; title: string; desc: string }[] = [
+  { icon: "data", title: "Orientacja na wynik", desc: "Każda decyzja oparta jest na danych i mierzalnych KPI." },
+  { icon: "idea", title: "Pasja do marketingu", desc: "Kochamy to, co robimy — i widać to w wynikach naszych klientów." },
+  { icon: "workflow", title: "Innowacyjność", desc: "Stale testujemy nowe narzędzia, technologie i strategie." },
+  { icon: "partnership", title: "Partnerstwo", desc: "Traktujemy klientów jak partnerów — ich sukces jest naszym sukcesem." },
 ];
 
 export default function ONasPage() {
@@ -135,8 +136,8 @@ export default function ONasPage() {
                 transition={{ delay: i * 0.1 }}
               >
                 <GlassCard className="p-6 text-center h-full">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 mx-auto bg-signal/10">
-                    <v.icon size={20} className="text-signal" />
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4 mx-auto bg-signal/10">
+                    <Icon name={v.icon} size={24} className="text-text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-text-primary mb-2" style={{ fontFamily: "var(--font-tight)" }}>
                     {v.title}

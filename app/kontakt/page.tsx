@@ -8,14 +8,15 @@ import { CheckCircle, Mail, Phone, Clock, MapPin } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import SocialIcon from "@/components/ui/SocialIcon";
-import { IconAudit, IconReport, IconGdpr } from "@/components/ui/icons/BrandIcons";
+import Icon from "@/components/ui/Icon";
+import type { BrandIconName } from "@/lib/brandIcons";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { siteConfig } from "@/lib/siteConfig";
 
-const trustBadges = [
-  { icon: IconAudit, label: "Bezpłatny audyt" },
-  { icon: IconReport, label: "Raport w 14 dni" },
-  { icon: IconGdpr, label: "Zgodność z RODO" },
+const trustBadges: { name: BrandIconName; label: string }[] = [
+  { name: "seo", label: "Bezpłatny audyt" },
+  { name: "report", label: "Raport w 14 dni" },
+  { name: "security", label: "Zgodność z RODO" },
 ];
 
 const socialLinks = [
@@ -106,12 +107,12 @@ export default function KontaktPage() {
             Opisz swój projekt, a my przygotujemy bezpłatną wycenę i propozycję działań.
           </p>
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-            {trustBadges.map(({ icon: Icon, label }) => (
+            {trustBadges.map(({ name, label }) => (
               <li
                 key={label}
                 className="trust-chip inline-flex items-center gap-2 rounded-full border border-border-default bg-white/[0.03] px-3.5 py-1.5 text-sm text-text-secondary backdrop-blur-sm"
               >
-                <Icon size={16} className="shrink-0" />
+                <Icon name={name} size={17} />
                 {label}
               </li>
             ))}
