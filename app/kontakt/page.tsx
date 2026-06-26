@@ -8,8 +8,15 @@ import { CheckCircle, Mail, Phone, Clock, MapPin } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import SocialIcon from "@/components/ui/SocialIcon";
+import { IconAudit, IconReport, IconGdpr } from "@/components/ui/icons/BrandIcons";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { siteConfig } from "@/lib/siteConfig";
+
+const trustBadges = [
+  { icon: IconAudit, label: "Bezpłatny audyt" },
+  { icon: IconReport, label: "Raport w 14 dni" },
+  { icon: IconGdpr, label: "Zgodność z RODO" },
+];
 
 const socialLinks = [
   { key: "linkedin", label: "LinkedIn", href: siteConfig.social.linkedin },
@@ -98,6 +105,17 @@ export default function KontaktPage() {
           <p className="text-text-secondary mt-4 max-w-2xl mx-auto">
             Opisz swój projekt, a my przygotujemy bezpłatną wycenę i propozycję działań.
           </p>
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+            {trustBadges.map(({ icon: Icon, label }) => (
+              <li
+                key={label}
+                className="trust-chip inline-flex items-center gap-2 rounded-full border border-border-default bg-white/[0.03] px-3.5 py-1.5 text-sm text-text-secondary backdrop-blur-sm"
+              >
+                <Icon size={16} className="shrink-0" />
+                {label}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">

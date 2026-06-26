@@ -297,6 +297,18 @@ body {
   .lg--shimmer::after { animation: none; opacity: 0; }
 }
 
+/* ─── BRAND ICONS ────────────────────────────────────────────────── */
+/* Sygnałowy akcent ikon marki — delikatny „puls" po najechaniu na chip. */
+.brand-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+.trust-chip:hover .brand-dot,
+.group\/badge:hover .brand-dot {
+  transform: scale(1.35);
+}
+
 :focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;
