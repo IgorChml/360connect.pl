@@ -147,7 +147,7 @@ export default function CennikPage() {
                 </ul>
                 <Link href="/kontakt">
                   <Button variant={plan.highlighted ? "primary" : "outline"} className="w-full">
-                    Wybierz plan
+                    {plan.name === "Enterprise" ? "Zapytaj o wycenę" : "Wybierz plan"}
                   </Button>
                 </Link>
               </motion.div>

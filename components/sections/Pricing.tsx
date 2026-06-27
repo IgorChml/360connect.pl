@@ -108,7 +108,7 @@ export default function Pricing() {
                     variant={plan.variant === "signal" ? "primary" : "outline"}
                     className="w-full"
                   >
-                    Wybierz plan
+                    {plan.name === "Enterprise" ? "Zapytaj o wycenę" : "Wybierz plan"}
                   </Button>
                 </Link>
               </motion.div>

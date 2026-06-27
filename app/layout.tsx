@@ -7,6 +7,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import MotionProvider from "@/components/providers/MotionProvider";
+import StickyCtaMobile from "@/components/layout/StickyCtaMobile";
 
 const inter = Inter({
   variable: "--font-body",
@@ -94,6 +95,7 @@ export default function RootLayout({
           <Navbar />
           <main id="main" className="flex-1">{children}</main>
           <Footer />
+          <StickyCtaMobile />
         </MotionProvider>
       </body>
     </html>

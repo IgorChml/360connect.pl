@@ -18,7 +18,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SnakeGame />
       <SocialProof />
       <Features />
       <Services />
@@ -26,6 +25,7 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       <BlogPreview />
+      <SnakeGame />
       <CtaBanner />
     </>
   );

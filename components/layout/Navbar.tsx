@@ -9,7 +9,6 @@ import Button from "@/components/ui/Button";
 import Logo from "@/components/ui/Logo";
 
 const links = [
-  { href: "/", label: "Strona główna" },
   { href: "/o-nas", label: "O nas" },
   { href: "/uslugi", label: "Usługi" },
   { href: "/cennik", label: "Cennik" },

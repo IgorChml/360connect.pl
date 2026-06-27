@@ -93,7 +93,8 @@ export default function Services() {
               </ul>
               <Link
                 href={`/uslugi/${s.slug}`}
-                className="inline-flex items-center gap-2 text-sm font-medium text-signal hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-sm font-medium text-signal hover:gap-3 transition-all after:absolute after:inset-0 after:content-['']"
+                aria-label={`${s.title} — dowiedz się więcej`}
               >
                 Dowiedz się więcej
                 <ArrowRight size={16} />

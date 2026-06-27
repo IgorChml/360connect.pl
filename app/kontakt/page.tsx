@@ -18,7 +18,7 @@ const socialLinks = [
 ].filter((s) => Boolean(s.href));
 
 const budgetOptions = [
-  { value: "", label: "Wybierz budżet" },
+  { value: "", label: "Wybierz budżet (opcjonalnie)" },
   { value: "<1k", label: "do 1 000 zł" },
   { value: "1-3k", label: "1 000 – 3 000 zł" },
   { value: "3-10k", label: "3 000 – 10 000 zł" },
@@ -122,7 +122,7 @@ export default function KontaktPage() {
                   <Input label="Firma *" autoComplete="organization" placeholder="Nazwa firmy" {...register("company")} error={errors.company?.message} />
 
                   <div>
-                    <label htmlFor="field-budget" className="block text-sm text-text-secondary mb-1.5">Budżet miesięczny *</label>
+                    <label htmlFor="field-budget" className="block text-sm text-text-secondary mb-1.5">Budżet miesięczny</label>
                     <select
                       id="field-budget"
                       aria-invalid={errors.budget ? true : undefined}

@@ -5,7 +5,7 @@ export const contactFormSchema = z.object({
   email: z.string().email("Podaj prawidłowy adres email"),
   phone: z.string().optional(),
   company: z.string().min(1, "Nazwa firmy jest wymagana"),
-  budget: z.string().min(1, "Wybierz budżet"),
+  budget: z.string().optional(),
   message: z.string().min(10, "Opis projektu musi mieć min. 10 znaków"),
 });
 
