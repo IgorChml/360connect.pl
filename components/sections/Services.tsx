@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const services = [
   {
     num: "01",
+    slug: "seo",
     title: "SEO",
     desc: "Pozycjonowanie, które buduje trwały ruch organiczny i widoczność w Google.",
     bullets: [
@@ -17,6 +20,7 @@ const services = [
   },
   {
     num: "02",
+    slug: "google-ads",
     title: "Google Ads",
     desc: "Kampanie w wyszukiwarce i sieci reklamowej z precyzyjnym targetowaniem.",
     bullets: [
@@ -28,6 +32,7 @@ const services = [
   },
   {
     num: "03",
+    slug: "meta-ads",
     title: "Meta Ads",
     desc: "Reklamy na Facebooku i Instagramie, które konwertują i skalują sprzedaż.",
     bullets: [
@@ -39,6 +44,7 @@ const services = [
   },
   {
     num: "04",
+    slug: "content-marketing",
     title: "Content Marketing",
     desc: "Treści, które przyciągają, edukują i konwertują Twoich idealnych klientów.",
     bullets: [
@@ -77,7 +83,7 @@ export default function Services() {
               <p className="text-sm text-text-secondary mb-4 leading-relaxed">
                 {s.desc}
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-6">
                 {s.bullets.map((b, j) => (
                   <li key={j} className="flex items-center gap-2 text-sm text-text-secondary">
                     <span className="w-1.5 h-1.5 rounded-full bg-signal shrink-0" />
@@ -85,8 +91,26 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href={`/uslugi/${s.slug}`}
+                className="inline-flex items-center gap-2 text-sm font-medium text-signal hover:gap-3 transition-all after:absolute after:inset-0 after:content-['']"
+                aria-label={`${s.title} — dowiedz się więcej`}
+              >
+                Dowiedz się więcej
+                <ArrowRight size={16} />
+              </Link>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/uslugi"
+            className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-signal transition-colors"
+          >
+            Zobacz wszystkie usługi
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

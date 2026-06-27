@@ -1,10 +1,19 @@
 import { getAllCaseStudies } from "@/lib/contentful";
 import CaseStudyCard from "@/components/contentful/CaseStudyCard";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Study",
-  description: "Zobacz jak pomagamy firmom osiągać mierzalne wyniki w marketingu cyfrowym.",
+  title: "Case Study — Wyniki Naszych Klientów",
+  description:
+    "Zobacz, jak pomagamy firmom osiągać mierzalne wyniki w marketingu cyfrowym. Historie sukcesu, wzrosty ruchu i ROI z kampanii 360 Connect.",
+  alternates: { canonical: "/case-study" },
+  openGraph: {
+    title: "Case Study — Wyniki Naszych Klientów | 360 Connect",
+    description:
+      "Poznaj historie sukcesu naszych klientów i mierzalne efekty współpracy.",
+    url: "/case-study",
+  },
 };
 
 export const revalidate = 3600;
@@ -14,6 +23,7 @@ export default async function CaseStudyPage() {
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs items={[{ name: "Case Study", path: "/case-study" }]} />
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-h2 text-text-primary">Case Study</h1>

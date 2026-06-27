@@ -9,8 +9,8 @@ import Button from "@/components/ui/Button";
 import Logo from "@/components/ui/Logo";
 
 const links = [
-  { href: "/", label: "Strona główna" },
   { href: "/o-nas", label: "O nas" },
+  { href: "/uslugi", label: "Usługi" },
   { href: "/cennik", label: "Cennik" },
   { href: "/case-study", label: "Case Study" },
   { href: "/blog", label: "Blog" },
@@ -27,10 +27,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   return (
     <>
@@ -89,9 +85,10 @@ export default function Navbar() {
             </div>
 
             <button
-              className="lg:hidden text-text-primary p-2"
+              className="lg:hidden inline-flex items-center justify-center min-h-[44px] min-w-[44px] -mr-2 text-text-primary touch-manipulation"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -108,6 +105,7 @@ export default function Navbar() {
             transition={{ type: "tween", duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col items-center justify-center gap-8"
             style={{ background: "var(--bg-base)" }}
+            onClick={() => setMobileOpen(false)}
           >
             {links.map((link) => (
               <Link
