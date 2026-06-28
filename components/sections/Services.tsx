@@ -4,11 +4,21 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Icon from "@/components/ui/Icon";
+import type { BrandIconName } from "@/lib/brandIcons";
 
-const services = [
+const services: {
+  num: string;
+  slug: string;
+  icon: BrandIconName;
+  title: string;
+  desc: string;
+  bullets: string[];
+}[] = [
   {
     num: "01",
     slug: "seo",
+    icon: "seo",
     title: "SEO",
     desc: "Pozycjonowanie, które buduje trwały ruch organiczny i widoczność w Google.",
     bullets: [
@@ -21,6 +31,7 @@ const services = [
   {
     num: "02",
     slug: "google-ads",
+    icon: "target",
     title: "Google Ads",
     desc: "Kampanie w wyszukiwarce i sieci reklamowej z precyzyjnym targetowaniem.",
     bullets: [
@@ -33,6 +44,7 @@ const services = [
   {
     num: "03",
     slug: "meta-ads",
+    icon: "social",
     title: "Meta Ads",
     desc: "Reklamy na Facebooku i Instagramie, które konwertują i skalują sprzedaż.",
     bullets: [
@@ -45,6 +57,7 @@ const services = [
   {
     num: "04",
     slug: "content-marketing",
+    icon: "branding",
     title: "Content Marketing",
     desc: "Treści, które przyciągają, edukują i konwertują Twoich idealnych klientów.",
     bullets: [
@@ -79,6 +92,9 @@ export default function Services() {
               <span className="text-caption text-signal absolute top-6 right-6">
                 {s.num}
               </span>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-signal-subtle">
+                <Icon name={s.icon} size={26} className="text-text-primary" />
+              </div>
               <h3 className="text-h3 text-text-primary mb-3">{s.title}</h3>
               <p className="text-sm text-text-secondary mb-4 leading-relaxed">
                 {s.desc}

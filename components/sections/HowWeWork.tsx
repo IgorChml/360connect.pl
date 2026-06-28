@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Target, Rocket, BarChart3 } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Icon from "@/components/ui/Icon";
+import type { BrandIconName } from "@/lib/brandIcons";
 
-const steps = [
-  { icon: Search, title: "Bezpłatny audyt", desc: "Analizujemy Twoją obecność online i identyfikujemy szanse wzrostu." },
-  { icon: Target, title: "Strategia i plan", desc: "Przygotowujemy spersonalizowany plan działań z konkretnymi KPI." },
-  { icon: Rocket, title: "Wdrożenie i optymalizacja", desc: "Uruchamiamy kampanie i na bieżąco optymalizujemy wyniki." },
-  { icon: BarChart3, title: "Raport i skalowanie", desc: "Dostarczamy przejrzyste raporty i skalujemy to, co działa." },
+const steps: { icon: BrandIconName; title: string; desc: string }[] = [
+  { icon: "analytics", title: "Bezpłatny audyt", desc: "Analizujemy Twoją obecność online i identyfikujemy szanse wzrostu." },
+  { icon: "strategy", title: "Strategia i plan", desc: "Przygotowujemy spersonalizowany plan działań z konkretnymi KPI." },
+  { icon: "integrations", title: "Wdrożenie i optymalizacja", desc: "Uruchamiamy kampanie i na bieżąco optymalizujemy wyniki." },
+  { icon: "report", title: "Raport i skalowanie", desc: "Dostarczamy przejrzyste raporty i skalujemy to, co działa." },
 ];
 
 export default function HowWeWork() {
@@ -38,7 +39,7 @@ export default function HowWeWork() {
               transition={{ delay: i * 0.15 }}
             >
               <div className="w-12 h-12 rounded-full flex items-center justify-center bg-bg-surface border border-signal relative z-10 mb-6">
-                <s.icon size={20} className="text-signal" />
+                <Icon name={s.icon} size={22} className="text-text-primary" />
               </div>
               <span className="text-caption text-signal mb-2">0{i + 1}</span>
               <h3 className="text-lg font-semibold text-text-primary mb-2" style={{ fontFamily: "var(--font-tight)" }}>

@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Shield, TrendingUp, Cpu, Users, Globe } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Icon from "@/components/ui/Icon";
+import type { BrandIconName } from "@/lib/brandIcons";
 
-const features = [
-  { icon: Zap, title: "Szybkie wdrożenia", desc: "Kampanie startują w ciągu dni, nie tygodni. Sprawna realizacja i natychmiastowe efekty." },
-  { icon: Shield, title: "Bezpieczeństwo danych", desc: "Pełna zgodność z RODO i najwyższe standardy ochrony danych Twoich klientów." },
-  { icon: TrendingUp, title: "Strategia wzrostu", desc: "Indywidualny plan skalowania oparty na danych, nie przeczuciach." },
-  { icon: Cpu, title: "Nowoczesne technologie", desc: "Automatyzacja, AI i najnowsze narzędzia analityczne w służbie Twojego biznesu." },
-  { icon: Users, title: "Doświadczony zespół", desc: "Certyfikowani specjaliści z wieloletnim doświadczeniem w performance marketingu." },
-  { icon: Globe, title: "Globalny zasięg", desc: "Kampanie na rynkach lokalnych i międzynarodowych, w wielu językach." },
+const features: { icon: BrandIconName; title: string; desc: string }[] = [
+  { icon: "speed", title: "Szybkie wdrożenia", desc: "Kampanie startują w ciągu dni, nie tygodni. Sprawna realizacja i natychmiastowe efekty." },
+  { icon: "security", title: "Bezpieczeństwo danych", desc: "Pełna zgodność z RODO i najwyższe standardy ochrony danych Twoich klientów." },
+  { icon: "growth", title: "Strategia wzrostu", desc: "Indywidualny plan skalowania oparty na danych, nie przeczuciach." },
+  { icon: "ai", title: "Nowoczesne technologie", desc: "Automatyzacja, AI i najnowsze narzędzia analityczne w służbie Twojego biznesu." },
+  { icon: "support", title: "Doświadczony zespół", desc: "Certyfikowani specjaliści z wieloletnim doświadczeniem w performance marketingu." },
+  { icon: "cloud", title: "Globalny zasięg", desc: "Kampanie na rynkach lokalnych i międzynarodowych, w wielu językach." },
 ];
 
 export default function Features() {
@@ -38,8 +39,8 @@ export default function Features() {
                 boxShadow: "0 8px 40px rgba(255, 79, 31, 0.18), 0 1px 0 rgba(255,255,255,0.06) inset",
               }}
             >
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-signal-subtle">
-                <f.icon size={20} className="text-signal" />
+              <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4 bg-signal-subtle">
+                <Icon name={f.icon} size={24} className="text-text-primary" />
               </div>
               <h3 className="text-h3 text-text-primary mb-2">{f.title}</h3>
               <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>

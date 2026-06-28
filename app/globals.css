@@ -297,6 +297,50 @@ body {
   .lg--shimmer::after { animation: none; opacity: 0; }
 }
 
+/* ─── BRAND ICONS (zestaw „web SVG") ─────────────────────────────── */
+.brand-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.brand-icon [data-stroke] {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.brand-icon [data-accent] {
+  stroke: var(--signal);
+}
+.brand-icon [data-fill-accent] {
+  fill: var(--signal);
+  stroke: none;
+}
+.brand-icon [data-draw] {
+  stroke-dasharray: var(--len);
+  stroke-dashoffset: var(--len);
+}
+/* statyczny wariant — od razu narysowany, bez animacji */
+.brand-icon.is-static [data-draw] {
+  stroke-dashoffset: 0;
+}
+/* animacja rysowania po wejściu w viewport */
+.brand-icon.is-drawn [data-draw] {
+  animation: brand-icon-draw 0.85s ease forwards;
+}
+@keyframes brand-icon-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-icon [data-draw] {
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;

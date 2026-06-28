@@ -3,6 +3,15 @@
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import Icon from "@/components/ui/Icon";
+import type { BrandIconName } from "@/lib/brandIcons";
+
+const trustBadges: { name: BrandIconName; label: string }[] = [
+  { name: "report", label: "Pierwszy raport w 14 dni" },
+  { name: "time", label: "Bez umowy na rok" },
+  { name: "performance", label: "Mierzalne efekty" },
+  { name: "security", label: "Zgodność z RODO" },
+];
 
 export default function Hero() {
   return (
@@ -56,6 +65,31 @@ export default function Hero() {
                 </Button>
               </Link>
             </motion.div>
+
+            {/* ── Pasek zaufania: ikony marki + konkrety biznesowe ── */}
+            <motion.ul
+              className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-2.5"
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.08, delayChildren: 0.5 } },
+              }}
+            >
+              {trustBadges.map(({ name, label }) => (
+                <motion.li
+                  key={label}
+                  className="trust-chip inline-flex items-center gap-2 rounded-full border border-border-default bg-white/[0.03] px-3.5 py-1.5 text-sm text-text-secondary backdrop-blur-sm"
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                >
+                  <Icon name={name} size={17} />
+                  {label}
+                </motion.li>
+              ))}
+            </motion.ul>
           </div>
 
           {/* ── Prawa kolumna: animacja logo ── */}
