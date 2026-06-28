@@ -3,10 +3,10 @@ import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/validations";
 import { buildTeamNotification, buildAutoReply } from "@/lib/email";
 
-// The "from" address must use a domain verified in Resend. Override per
-// environment with RESEND_FROM_EMAIL (e.g. "360 Connect <noreply@360connect.pl>").
-const DEFAULT_FROM = "360 Connect <noreply@360connect.pl>";
-const DEFAULT_CONTACT_EMAIL = "kontakt@360connect.pl";
+// The "from" address must use a domain verified in Resend (360connect.com.pl).
+// Override per environment with RESEND_FROM_EMAIL.
+const DEFAULT_FROM = "360 Connect <noreply@360connect.com.pl>";
+const DEFAULT_CONTACT_EMAIL = "kontakt@360connect.com.pl";
 
 export async function POST(request: Request) {
   let body: unknown;
