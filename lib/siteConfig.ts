@@ -8,7 +8,7 @@ export const siteConfig = {
   locale: "pl_PL",
   description:
     "Agencja performance marketingu z Poznania. SEO, Google Ads, Meta Ads i content marketing oparte na danych. Pojedyncze usługi lub pełny pakiet — pierwszy raport w 14 dni.",
-  email: "kontakt@360connect.pl",
+  email: "kontakt@360connect.com.pl",
   phone: "+48 690 004 275",
   vatId: "PL7831897775",
   taxId: "7831897775",
