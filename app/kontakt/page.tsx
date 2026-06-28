@@ -9,6 +9,7 @@ import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import SocialIcon from "@/components/ui/SocialIcon";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
+import { budgetOptions } from "@/lib/contact";
 import { siteConfig } from "@/lib/siteConfig";
 
 const socialLinks = [
@@ -16,14 +17,6 @@ const socialLinks = [
   { key: "facebook", label: "Facebook", href: siteConfig.social.facebook },
   { key: "instagram", label: "Instagram", href: siteConfig.social.instagram },
 ].filter((s) => Boolean(s.href));
-
-const budgetOptions = [
-  { value: "", label: "Wybierz budżet (opcjonalnie)" },
-  { value: "<1k", label: "do 1 000 zł" },
-  { value: "1-3k", label: "1 000 – 3 000 zł" },
-  { value: "3-10k", label: "3 000 – 10 000 zł" },
-  { value: "10k+", label: "powyżej 10 000 zł" },
-];
 
 function Input({
   label,
